@@ -1,17 +1,53 @@
-//your code here
+swirl[] tom; 
 void setup()
-{
-	//your code here
+{ 
+  background(0); 
+  size(600, 600); 
+  tom = new swirl[1];
+  for(int i = 0; i < tom.length; i++) {
+    tom[i] = new swirl(); 
+  }
 }
 void draw()
 {
-	//your code here
+  
+  for(int i = 0; i < tom.length; i++) {
+    tom[i].show(); 
+    tom[i].move(); 
+  }
+  
 }
-class NormalParticle
+class swirl
 {
-	//your code here
+float x, y, angle, speed;
+swirl()  
+{
+    
+     x = 300;
+     y = 300;
+     angle = 0; 
+     speed = 20;  
+  
+}    
+void show() 
+{
+  frameRate(300);
+  fill((int)(Math.random()*256), 255, 255); 
+  strokeWeight(30); 
+  ellipse(x, y, 5, 5); 
 }
-interface Particle
+void move() { 
+   frameRate(300);
+   x = cos(angle)*speed + x;
+   y = sin(angle)*speed + y; 
+   angle++; 
+   speed++; 
+    
+}
+
+}
+
+/*interface Particle
 {
 	//your code here
 }
@@ -22,5 +58,6 @@ class OddballParticle //uses an interface
 class JumboParticle //uses inheritance
 {
 	//your code here
-}
+}*/
+
 
