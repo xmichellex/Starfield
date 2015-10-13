@@ -38,8 +38,8 @@ void show()
 }
 void move() { 
    frameRate(300);
-   x = cos(angle)*speed + x;
-   y = sin(angle)*speed + y; 
+   x = cos(angle)*speed + 300;
+   y = sin(angle)*speed + 300; 
    angle++; 
    speed++; 
     
