@@ -21,7 +21,7 @@ class swirl
 float x, y, angle, radiusX, radiusY;
 swirl()  
 {
-     angle = (float)(Math.random()*2*PI); 
+     angle = (float)(Math.random()*2*Math.PI); 
      radiusX = (float)(Math.random()*60) + 250;  
      radiusY = (float)(Math.random()*20) + 70;
   
