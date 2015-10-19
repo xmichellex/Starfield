@@ -1,11 +1,11 @@
-swirl[] tom; 
+ring[] tom; 
 void setup()
 { 
   background(0); 
   size(600, 600); 
-  tom = new swirl[100];
+  tom = new ring[100];
   for(int i = 0; i < tom.length; i++) {
-    tom[i] = new swirl(); 
+    tom[i] = new ring(); 
   }
 }
 void draw()
@@ -16,15 +16,15 @@ void draw()
   }
   
 }
-class swirl
+class ring
 {
-float x, y, angle, radiusX, radiusY;
-swirl()  
-{
+int x, y; 
+float angle, radiusX, radiusY;
+ring()  
+{ 
      angle = (float)(Math.random()*2*Math.PI); 
      radiusX = (float)(Math.random()*60) + 250;  
-     radiusY = (float)(Math.random()*20) + 70;
-  
+     radiusY = (float)(Math.random()*20) + 70; 
 }    
 void show() 
 {
@@ -35,8 +35,8 @@ void show()
 }
 void move() { 
    frameRate(300);
-   x = cos(angle)*radiusX + 300;
-   y = sin(angle)*radiusY + 300; 
+   x = (int)(cos(angle)*radiusX) + 300;
+   y = (int)(sin(angle)*radiusY) + 300; 
    angle++; 
   }
 }
