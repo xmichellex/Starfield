@@ -1,7 +1,7 @@
 ring[] tom; 
 void setup()
 { 
-  background(0); 
+  background(255); 
   size(600, 600); 
   tom = new ring[100];
   for(int i = 0; i < tom.length; i++) {
