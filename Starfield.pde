@@ -11,8 +11,8 @@ void setup()
 void draw()
 {
   for(int i = 0; i < tom.length; i++) {
-    tom[i].show(); 
     tom[i].move(); 
+    tom[i].show(); 
   }
   
 }
