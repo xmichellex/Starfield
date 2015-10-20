@@ -1,15 +1,16 @@
 ring[] tom; 
 void setup()
 { 
-  background(255); 
+  background(0); 
   size(600, 600); 
-  tom = new ring[100];
+  tom = new ring[1000];
   for(int i = 0; i < tom.length; i++) {
     tom[i] = new ring(); 
   }
 }
 void draw()
 {
+  background(0);
   for(int i = 0; i < tom.length; i++) {
     tom[i].move(); 
     tom[i].show(); 
@@ -18,25 +19,26 @@ void draw()
 }
 class ring
 {
-int x, y; 
-float angle, radiusX, radiusY;
+
+float x, y, angle, radiusX, radiusY;
 ring()  
 { 
-     x = y =300;
+
      angle = (float)(Math.random()*2*Math.PI); 
      radiusX = (float)(Math.random()*60) + 250;  
      radiusY = (float)(Math.random()*20) + 70; 
 }    
 void show() 
 {
-  //frameRate(300);
+  frameRate(200);
  fill((int)(Math.random()*256), 255, 255); 
+ noStroke();
  ellipse(x, y, 5, 5); 
 }
 void move() { 
-  // frameRate(300);
-   x = (int)(Math.cos(angle)*radiusX) + 300;
-   y = (int)(Math.sin(angle)*radiusY) + 300; 
+   frameRate(200);
+   x = (float)(Math.cos(angle)*radiusX) + 300;
+   y = (float)(Math.sin(angle)*radiusY) + 300; 
    angle++; 
   }
 }
