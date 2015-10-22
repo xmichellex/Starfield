@@ -1,14 +1,14 @@
-Dust[] tom; 
+particle[] tom; 
 void setup()
 { 
   background(0); 
   size(600, 600); 
-  tom = new Dust[500];
+  tom = new particle[500];
   for(int i = 2; i < tom.length; i++) {
-    tom[i] = new ring(); 
+    tom[i] = new dust(); 
   }
-  tom[0] = new king(); 
-  tom[1] = new jumboDust(); 
+  tom[0] = new planet(); 
+  tom[1] = new jumboParticle(); 
 }
 void draw()
 {
@@ -17,19 +17,19 @@ void draw()
     tom[0].move(); 
   for(int i = 2; i < tom.length; i++) {
     tom[i].show();
-    ((ring)tom[i]).move(); 
+    ((dust)tom[i]).move(); 
   }
 
   tom[1].show(); 
-  ((jumboDust)tom[1]).move();
+  ((jumboParticle)tom[1]).move();
 
 
 }
-class ring implements Dust
+class dust implements particle
 {
 
 float x, y, angle, radiusX, radiusY, diameter;
-ring()  
+dust()  
 { 
 
      angle = (float)(Math.random()*2*Math.PI); 
@@ -57,36 +57,36 @@ void move() {
   }
 }
 
-interface Dust
+interface particle
 {
   public void show(); 
   public void move(); 
 }
-class king implements Dust 
+class planet implements particle 
 { 
-  int kingX, kingY; 
-king() {
-  kingX = 300; 
-  kingY = 300; 
+  int planetX, planetY; 
+planet() {
+  planetX = 300; 
+  planetY = 300; 
 }  
   public void show() {
   fill(0, 51, 102);
-  ellipse(kingX, kingY, 300, 300); 
+  ellipse(planetX, planetY, 300, 300); 
   }
   public void move() {
-    kingY = kingY + (int)(Math.random() *2); 
-    if(kingY < 290) {
-      kingY = kingY + (int)(Math.random()*2);
-    } else if (kingY > 310) { 
-      kingY = kingY - (int)(Math.random()*2); 
+    planetY = planetY + (int)(Math.random() *2); 
+    if(planetY < 290) {
+      planetY = planetY + (int)(Math.random()*2);
+    } else if (planetY > 310) { 
+      planetY = planetY - (int)(Math.random()*2); 
     }
 
 
   }
 }
-class jumboDust extends ring
+class jumboParticle extends dust
 {
-jumboDust() { 
+jumboParticle() { 
 diameter = 25; 
 }
   public void show() { 
