@@ -14,6 +14,7 @@ void draw()
 {
   background(0);
     tom[0].show();
+    tom[0].move(); 
   for(int i = 2; i < tom.length; i++) {
     tom[i].show();
     ((ring)tom[i]).move(); 
@@ -63,14 +64,24 @@ interface Dust
 }
 class king implements Dust 
 { 
+  int kingX, kingY; 
 king() {
+  kingX = 300; 
+  kingY = 300; 
 }  
   public void show() {
   fill(0, 51, 102);
-  ellipse(300, 300, 300, 300); 
+  ellipse(kingX, kingY, 300, 300); 
   }
   public void move() {
-    
+    kingY = kingY + (int)(Math.random() *2); 
+    if(kingY < 290) {
+      kingY = kingY + (int)(Math.random()*2);
+    } else if (kingY > 310) { 
+      kingY = kingY - (int)(Math.random()*2); 
+    }
+
+
   }
 }
 class jumboDust extends ring
