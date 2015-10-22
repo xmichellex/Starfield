@@ -1,4 +1,5 @@
-particle[] tom; 
+particle[] tom;
+star[] starLight;  
 void setup()
 { 
   background(0); 
@@ -9,10 +10,20 @@ void setup()
   }
   tom[0] = new planet(); 
   tom[1] = new jumboParticle(); 
+  starLight = new star[200];
+  for(int i = 0; i < starLight.length; i++) {
+    starLight[i] = new star(); 
+  }
+
 }
+
 void draw()
 {
   background(0);
+    for(int i = 0; i < starLight.length; i++) {
+  starLight[i].display();  
+}
+
     tom[0].show();
     tom[0].move(); 
   for(int i = 2; i < tom.length; i++) {
@@ -103,5 +114,26 @@ if(y < 300 && x > 168 && x < 430) {
    y = (float)(Math.sin(angle)*radiusY) + 300; 
    angle++; 
   }
+}
+class star { 
+float starX, starY, triangleWidth, triangleHeight; 
+star() { 
+starX = (int)(Math.random()*600); 
+starY = (int)(Math.random()*600); 
+triangleWidth = (int)(Math.random()*5)+2;
+triangleHeight = triangleWidth*sqrt(3); 
+}
+void display() { 
+noStroke(); 
+fill(255, 255, 154); 
+triangle(starX, starY, starX+triangleWidth, starY + triangleWidth*sqrt(3), starX-triangleWidth, starY + triangleWidth*sqrt(3)); 
+triangle(starX, starY + triangleHeight/3 + triangleHeight, starX+triangleWidth, starY + triangleHeight/3, starX-triangleWidth, starY + triangleHeight/3);  
+}
+
+  
+
+
+
+
 }
 
